@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -21,7 +21,7 @@ if (process.env.NODE_ENV === 'development') {
 } else {
   baseUrl = 'https://ride-along-backend.herokuapp.com';
 }
-console.log('current base URL:', baseUrl);
+// console.log('current base URL:', baseUrl);
 
 export default function App() {
   // State
@@ -29,7 +29,16 @@ export default function App() {
   const [videos, setVideos] = useState([])
 
   // Functions to make everything work
-  
+  useEffect(() => {
+    let getBlogs = async () => {
+      fetch(baseUrl + "/v1/blog/").then(res => {
+        return res.json();
+      }).then(data => {
+        setBlogs(data.data)
+      }).catch(err => console.log(err))
+    }
+    getBlogs()
+  }, [])
   
   // Render
   return (
