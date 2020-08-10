@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -11,10 +11,12 @@ import About from "./components/About"
 import Videos from "./components/Videos"
 import Blog from "./components/Blog"
 import Shop from "./components/Shop"
-import Contact from "./components/Home"
-
+import Contact from "./components/Contact"
+import AdminCms from "./components/AdminCms"
 
 export default function App() {
+  const blogs = useState([])
+  const videos = useState([])
   return (
     <Router>
       <div>
@@ -49,10 +51,10 @@ export default function App() {
             <About />
           </Route>
           <Route path="/blog">
-            <Blog />
+            <Blog blogs={blogs}/>
           </Route>
           <Route path="/videos">
-            <Videos />
+            <Videos videos={videos}/>
           </Route>
           <Route path="/shop">
             <Shop />
@@ -60,10 +62,11 @@ export default function App() {
           <Route path="/contact">
             <Contact />
           </Route>
-          <Route path="/">
+          <Route exact path="/">
             <Home />
           </Route>
         </Switch>
+        <AdminCms />
       </div>
     </Router>
   );

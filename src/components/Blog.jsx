@@ -1,9 +1,18 @@
 import React from 'react'
 
-export default function Blog() {
+export default function Blog(props) {
     return (
         <div>
-            <h1>Blog Page</h1>
+            <h2>Blog Page</h2>
+            {props.blogs[0].length < 1 ? (
+                <p>No blogs yet, sorry.</p>
+            ) : (
+                <ul>
+                    {props.blogs.map((blog, index) => {
+                        return <li key={index}>{blog.title}</li>
+                    })}
+                </ul>
+            )}
         </div>
     )
 }

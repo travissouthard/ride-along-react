@@ -3,7 +3,14 @@ import React from 'react'
 export default function Contact() {
     return (
         <div>
-            <h1>Contact Page</h1>
+            <h2>Contact Us</h2>
+            <ul>
+                <li>YouTube</li>
+                <li>Email</li>
+                <li>Twitter</li>
+                <li>Instagram</li>
+            </ul>
+            <p>You can hire us to help you design a custom adventure, email us for details!</p>
         </div>
     )
 }
