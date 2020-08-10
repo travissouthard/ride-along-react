@@ -43,9 +43,6 @@ export default function App() {
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
-          <Route path="/">
-            <Home />
-          </Route>
           <Route path="/about">
             <About />
           </Route>
@@ -60,6 +57,9 @@ export default function App() {
           </Route>
           <Route path="/contact">
             <Contact />
+          </Route>
+          <Route path="/">
+            <Home />
           </Route>
         </Switch>
       </div>
