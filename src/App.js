@@ -14,10 +14,23 @@ import Shop from "./components/Shop"
 import Contact from "./components/Contact"
 import AdminCms from "./components/AdminCms"
 
+//To set baseUrl to work with Heroku or localhost
+let baseUrl;
+if (process.env.NODE_ENV === 'development') {
+  baseUrl = 'http://localhost:8000';
+} else {
+  baseUrl = 'https://ride-along-backend.herokuapp.com';
+}
+console.log('current base URL:', baseUrl);
+
 export default function App() {
   // State
   const [blogs, setBlogs] = useState([])
   const [videos, setVideos] = useState([])
+
+  // Functions to make everything work
+  
+  
   // Render
   return (
     <Router>
