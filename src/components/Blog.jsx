@@ -8,7 +8,7 @@ export default function Blog(props) {
                 <p>No blogs yet, sorry.</p>
             ) : (
                 <ul>
-                    {props.blogs.map((blog, index) => {
+                    {props.blogs[0].map((blog, index) => {
                         return <li key={index}>{blog.title}</li>
                     })}
                 </ul>

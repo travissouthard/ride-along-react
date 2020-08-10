@@ -9,7 +9,7 @@ export default function Videos(props) {
                 <p>No videos yet, sorry.</p>
             ) : (
                 <ul>
-                    {props.videos.map((video, index) => {
+                    {props.videos[0].map((video, index) => {
                         return <li key={index}>{video.title}</li>
                     })}
                 </ul>

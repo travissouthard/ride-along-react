@@ -65,8 +65,10 @@ export default function App() {
           <Route exact path="/">
             <Home />
           </Route>
+          <Route>
+            <AdminCms />
+          </Route>
         </Switch>
-        <AdminCms />
       </div>
     </Router>
   );
