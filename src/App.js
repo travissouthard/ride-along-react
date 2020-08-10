@@ -15,8 +15,10 @@ import Contact from "./components/Contact"
 import AdminCms from "./components/AdminCms"
 
 export default function App() {
-  const blogs = useState([])
-  const videos = useState([])
+  // State
+  const [blogs, setBlogs] = useState([])
+  const [videos, setVideos] = useState([])
+  // Render
   return (
     <Router>
       <div>
@@ -41,11 +43,11 @@ export default function App() {
             <li>
               <Link to="/contact">Contact</Link>
             </li>
+            <li>
+              <Link to="/admincms">Add New Content</Link>
+            </li>
           </ul>
         </nav>
-
-        {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
         <Switch>
           <Route path="/about">
             <About />
@@ -65,7 +67,7 @@ export default function App() {
           <Route exact path="/">
             <Home />
           </Route>
-          <Route>
+          <Route path="/admincms">
             <AdminCms />
           </Route>
         </Switch>
