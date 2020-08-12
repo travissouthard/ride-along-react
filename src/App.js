@@ -31,13 +31,21 @@ export default function App() {
   // Functions to make everything work
   useEffect(() => {
     let getBlogs = async () => {
-      fetch(baseUrl + "/v1/blog/").then(res => {
+      fetch(baseUrl + "/v1/blog").then(res => {
         return res.json();
       }).then(data => {
         setBlogs(data.data)
       }).catch(err => console.log(err))
     }
+    let getVideos = async () => {
+      fetch(baseUrl + "/v1/video").then(res => {
+        return res.json();
+      }).then(data => {
+        setVideos(data.data)
+      }).catch(err => console.log(err))
+    }
     getBlogs()
+    getVideos()
   }, [])
   
   // Render
