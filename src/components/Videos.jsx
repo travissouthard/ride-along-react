@@ -4,7 +4,7 @@ export default function Videos(props) {
     return (
         <div>
             <div>
-            <h2>Blog Page</h2>
+            <h2>Video Page</h2>
             {props.videos.length < 1 ? (
                 <p>No videos yet, sorry.</p>
             ) : (

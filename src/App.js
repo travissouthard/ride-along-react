@@ -27,6 +27,9 @@ export default function App() {
   // State
   const [blogs, setBlogs] = useState([])
   const [videos, setVideos] = useState([])
+  const [admin, setAdmin] = useState({})
+  const [loginEmail, setLoginEmail] = useState("")
+  const [loginPassword, setLoginPassword] = useState("")
 
   // Functions to make everything work
   useEffect(() => {
@@ -48,6 +51,30 @@ export default function App() {
     getVideos()
   }, [])
   
+  let handleChange = (event, callback) => {
+    callback(event.target.value)
+  }
+
+  let handleLogin = (event) => {
+    event.preventDefault()
+    fetch(baseUrl + "/user/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        email: loginEmail,
+        password: loginPassword
+      })
+    }).then(res => {
+      return res.json()
+    }).then(data => {
+      setAdmin(data.data)
+      setLoginEmail("")
+      setLoginPassword("")
+    })
+  }
+
   // Render
   return (
     <Router>
@@ -73,9 +100,11 @@ export default function App() {
             <li>
               <Link to="/contact">Contact</Link>
             </li>
-            <li>
+            {admin.username ? (
+              <li>
               <Link to="/admincms">Add New Content</Link>
             </li>
+            ) : ""}
           </ul>
         </nav>
         <Switch>
@@ -101,6 +130,21 @@ export default function App() {
             <AdminCms />
           </Route>
         </Switch>
+        <footer>
+          {admin.username ? (
+            <a href="/user/logout">Logout {admin.username}</a>
+          ) : (
+            <form onSubmit={(event => handleLogin(event))}>
+              <label htmlFor="email">Email
+                <input type="email" name="email" id="email" value={loginEmail} onChange={(event) => handleChange(event, setLoginEmail)}/>
+              </label>
+              <label htmlFor="password">Password
+                <input type="password" name="password" id="password" value={loginPassword} onChange={(event) => handleChange(event, setLoginPassword)}/>
+              </label>
+              <input type="submit" value="Login" />
+            </form>
+          )}
+        </footer>
       </div>
     </Router>
   );
