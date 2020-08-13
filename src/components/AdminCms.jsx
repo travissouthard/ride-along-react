@@ -59,7 +59,6 @@ export default function AdminCms(props) {
             {form === "product" ? (
                 <ProductForm
                     handleChange={props.handleChange}
-                    handleChange={props.handleChange}
                     name={props.name}
                     description={props.description}
                     price={props.price}
