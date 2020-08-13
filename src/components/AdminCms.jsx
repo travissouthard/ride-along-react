@@ -9,7 +9,7 @@ export default function AdminCms(props) {
         setForm(event.target.value)
     }
     return (
-        <form>
+        <form onSubmit={(event) => props.handleSubmit(event, form)}>
             <fieldset onChange={(event) => changeForm(event)}>
                 <legend>What do you want to add?</legend>
                 <label htmlFor="blog">

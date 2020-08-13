@@ -91,6 +91,37 @@ export default function App() {
     })
   }
 
+  let handleSubmit = (event, type) => {
+    event.preventDefault()
+    fetch(baseUrl + "/v1/" + type, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        title: title,
+        text: text,
+        image: image,
+        date: date,
+        author: author,
+        trip: trip,
+        last_admin: admin.id
+      })
+    }).then(res => {
+      return res.json()
+    }).then(data => {
+      let copyBlogs = [...blogs]
+      copyBlogs.push(data)
+      setBlogs(copyBlogs)
+      setTitle("")
+      setText("")
+      setImage("")
+      setDate("")
+      setAuthor("")
+      setTrip("")
+    })
+  }
+
   // Render
   return (
     <Router>
@@ -146,6 +177,7 @@ export default function App() {
             {admin.username ? (
               <AdminCms 
                 handleChange={handleChange}
+                handleSubmit={handleSubmit}
                 title={title}
                 text={text}
                 image={image}
