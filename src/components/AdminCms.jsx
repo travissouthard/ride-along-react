@@ -39,8 +39,43 @@ export default function AdminCms(props) {
                     setTrip={props.setTrip}
                 />
             ) : ""}
-            {form === "video" ? (<VideoForm handleChange={props.handleChange}/>) : ""}
-            {form === "product" ? (<ProductForm handleChange={props.handleChange}/>) : ""}
+            {form === "video" ? (
+                <VideoForm
+                    handleChange={props.handleChange}
+                    title={props.title}
+                    text={props.text}
+                    url={props.url}
+                    thumbnail={props.thumbnail}
+                    date={props.date}
+                    trip={props.trip}
+                    setTitle={props.setTitle}
+                    setText={props.setText}
+                    setUrl={props.setUrl}
+                    setThumbnail={props.setThumbnail}
+                    setDate={props.setDate}
+                    setTrip={props.setTrip}
+                />
+            ) : ""}
+            {form === "product" ? (
+                <ProductForm
+                    handleChange={props.handleChange}
+                    handleChange={props.handleChange}
+                    name={props.name}
+                    description={props.description}
+                    price={props.price}
+                    quantity={props.quantity}
+                    image={props.image}
+                    discount={props.discount}
+                    trip={props.trip}
+                    setName={props.setName}
+                    setDescription={props.setDescription}
+                    setPrice={props.setPrice}
+                    setQuantity={props.setQuantity}
+                    setImage={props.setImage}
+                    setDiscount={props.setDiscount}
+                    setTrip={props.setTrip}
+                />
+            ) : ""}
             <input type="submit" value={"Add new " + form}/>
         </form>
     )

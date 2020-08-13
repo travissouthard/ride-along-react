@@ -1,26 +1,26 @@
 import React from 'react'
 
-export default function VideoForm() {
+export default function VideoForm(props) {
     return (
         <fieldset>
             <legend>Add a video</legend>
             <label htmlFor="title">Title: 
-                <input type="text" id="title" name="title"/>
+                <input type="text" id="title" name="title" value={props.title} onChange={(event) => props.handleChange(event, props.setTitle)}/>
             </label>
             <label htmlFor="text">Text: 
-                <input type="text" id="text" name="text"/>
+                <input type="text" id="text" name="text" value={props.text} onChange={(event) => props.handleChange(event, props.setText)}/>
             </label>
             <label htmlFor="url">Video URL: 
-                <input type="text" id="url" name="url"/>
+                <input type="text" id="url" name="url" value={props.url} onChange={(event) => props.handleChange(event, props.setUrl)}/>
             </label>
             <label htmlFor="date">Date: 
-                <input type="date" id="date" name="date"/>
+                <input type="date" id="date" name="date" value={props.date} onChange={(event) => props.handleChange(event, props.setDate)}/>
             </label>
             <label htmlFor="thumbnail">Thumbnail: 
-                <input type="text" id="thumbnail" name="thumbnail"/>
+                <input type="text" id="thumbnail" name="thumbnail" value={props.thumbnail} onChange={(event) => props.handleChange(event, props.setThumbnail)}/>
             </label>
             <label htmlFor="trip">Trip: 
-                <input type="text" id="trip" name="trip"/>
+                <input type="text" id="trip" name="trip" value={props.trip} onChange={(event) => props.handleChange(event, props.setTrip)}/>
             </label>
         </fieldset>
     )

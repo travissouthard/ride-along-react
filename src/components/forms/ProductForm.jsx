@@ -1,29 +1,29 @@
 import React from 'react'
 
-export default function ProductForm() {
+export default function ProductForm(props) {
     return (
         <fieldset>
             <legend>Add a product</legend>
             <label htmlFor="name">Name: 
-                <input type="text" id="name" name="name"/>
+                <input type="text" id="name" name="name" value={props.name} onChange={(event) => props.handleChange(event, props.setName)}/>
             </label>
             <label htmlFor="description">Text: 
-                <input type="text" id="description" name="description"/>
+                <input type="text" id="description" name="description" value={props.description} onChange={(event) => props.handleChange(event, props.setDescription)}/>
             </label>
             <label htmlFor="image">Image URL: 
-                <input type="text" id="image" name="image"/>
+                <input type="text" id="image" name="image" value={props.image} onChange={(event) => props.handleChange(event, props.setImage)}/>
             </label>
             <label htmlFor="price">Date: 
-                <input type="number" id="price" name="price"/>
+                <input type="number" id="price" name="price" value={props.price} onChange={(event) => props.handleChange(event, props.setPrice)}/>
             </label>
-            <label htmlFor="quantity">Author: 
-                <input type="text" id="quantity" name="quantity"/>
+            <label htmlFor="quantity">Quantity: 
+                <input type="number" id="quantity" name="quantity" value={props.quantity} onChange={(event) => props.handleChange(event, props.setQuantity)}/>
             </label>
-            <label htmlFor="discount">Author: 
-                <input type="text" id="discount" name="discount"/>
+            <label htmlFor="discount">Discount: 
+                <input type="number" id="discount" name="discount" value={props.discount} onChange={(event) => props.handleChange(event, props.setDiscount)}/>
             </label>
             <label htmlFor="trip">Trip: 
-                <input type="text" id="trip" name="trip"/>
+                <input type="text" id="trip" name="trip" value={props.trip} onChange={(event) => props.handleChange(event, props.setTrip)}/>
             </label>
         </fieldset>
     )

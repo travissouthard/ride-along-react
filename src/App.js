@@ -41,6 +41,7 @@ export default function App() {
     const [trip, setTrip] = useState("")
     const [url, setUrl] = useState("")
     const [thumbnail, setThumbnail] = useState("")
+    const [name, setName] = useState("")
     const [description, setDescription] = useState("")
     const [price, setPrice] = useState("")
     const [quantity, setQuantity] = useState("")
@@ -153,6 +154,7 @@ export default function App() {
                 trip={trip}
                 url={url}
                 thumbnail={thumbnail}
+                name={name}
                 description={description}
                 price={price}
                 quantity={quantity}
@@ -165,6 +167,7 @@ export default function App() {
                 setTrip={setTrip}
                 setUrl={setUrl}
                 setThumbnail={setThumbnail}
+                setName={setName}
                 setDescription={setDescription}
                 setPrice={setPrice}
                 setQuantity={setQuantity}
