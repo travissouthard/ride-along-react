@@ -25,11 +25,26 @@ if (process.env.NODE_ENV === 'development') {
 
 export default function App() {
   // State
-  const [blogs, setBlogs] = useState([])
-  const [videos, setVideos] = useState([])
-  const [admin, setAdmin] = useState({})
-  const [loginEmail, setLoginEmail] = useState("")
-  const [loginPassword, setLoginPassword] = useState("")
+    // Data for blogs and videos
+    const [blogs, setBlogs] = useState([])
+    const [videos, setVideos] = useState([])
+    // For login
+    const [admin, setAdmin] = useState({})
+    const [loginEmail, setLoginEmail] = useState("")
+    const [loginPassword, setLoginPassword] = useState("")
+    // For forms
+    const [title, setTitle] = useState("")
+    const [text, setText] = useState("")
+    const [image, setImage] = useState("")
+    const [date, setDate] = useState("")
+    const [author, setAuthor] = useState("")
+    const [trip, setTrip] = useState("")
+    const [url, setUrl] = useState("")
+    const [thumbnail, setThumbnail] = useState("")
+    const [description, setDescription] = useState("")
+    const [price, setPrice] = useState("")
+    const [quantity, setQuantity] = useState("")
+    const [discount, setDiscount] = useState("")
 
   // Functions to make everything work
   useEffect(() => {
@@ -127,7 +142,35 @@ export default function App() {
             <Home />
           </Route>
           <Route path="/admincms">
-            {admin.username ? <AdminCms /> : <p>You need to log in for this feature.</p>}
+            {admin.username ? (
+              <AdminCms 
+                handleChange={handleChange}
+                title={title}
+                text={text}
+                image={image}
+                date={date}
+                author={author}
+                trip={trip}
+                url={url}
+                thumbnail={thumbnail}
+                description={description}
+                price={price}
+                quantity={quantity}
+                discount={discount}
+                setTitle={setTitle}
+                setText={setText}
+                setImage={setImage}
+                setDate={setDate}
+                setAuthor={setAuthor}
+                setTrip={setTrip}
+                setUrl={setUrl}
+                setThumbnail={setThumbnail}
+                setDescription={setDescription}
+                setPrice={setPrice}
+                setQuantity={setQuantity}
+                setDiscount={setDiscount}
+              />
+            ) : <p>You need to log in for this feature.</p>}
           </Route>
         </Switch>
         <footer>
