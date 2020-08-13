@@ -127,7 +127,7 @@ export default function App() {
             <Home />
           </Route>
           <Route path="/admincms">
-            <AdminCms />
+            {admin.username ? <AdminCms /> : <p>You need to log in for this feature.</p>}
           </Route>
         </Switch>
         <footer>

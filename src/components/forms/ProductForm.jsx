@@ -4,20 +4,23 @@ export default function ProductForm() {
     return (
         <fieldset>
             <legend>Add a product</legend>
-            <label htmlFor="title">Title: 
-                <input type="text" id="title" name="title"/>
+            <label htmlFor="name">Name: 
+                <input type="text" id="name" name="name"/>
             </label>
-            <label htmlFor="text">Text: 
-                <input type="text" id="text" name="text"/>
+            <label htmlFor="description">Text: 
+                <input type="text" id="description" name="description"/>
             </label>
             <label htmlFor="image">Image URL: 
                 <input type="text" id="image" name="image"/>
             </label>
-            <label htmlFor="date">Date: 
-                <input type="date" id="date" name="date"/>
+            <label htmlFor="price">Date: 
+                <input type="number" id="price" name="price"/>
             </label>
-            <label htmlFor="author">Author: 
-                <input type="text" id="author" name="author"/>
+            <label htmlFor="quantity">Author: 
+                <input type="text" id="quantity" name="quantity"/>
+            </label>
+            <label htmlFor="discount">Author: 
+                <input type="text" id="discount" name="discount"/>
             </label>
             <label htmlFor="trip">Trip: 
                 <input type="text" id="trip" name="trip"/>

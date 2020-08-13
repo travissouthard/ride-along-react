@@ -10,14 +10,14 @@ export default function VideoForm() {
             <label htmlFor="text">Text: 
                 <input type="text" id="text" name="text"/>
             </label>
-            <label htmlFor="image">Image URL: 
-                <input type="text" id="image" name="image"/>
+            <label htmlFor="url">Video URL: 
+                <input type="text" id="url" name="url"/>
             </label>
             <label htmlFor="date">Date: 
                 <input type="date" id="date" name="date"/>
             </label>
-            <label htmlFor="author">Author: 
-                <input type="text" id="author" name="author"/>
+            <label htmlFor="thumbnail">Thumbnail: 
+                <input type="text" id="thumbnail" name="thumbnail"/>
             </label>
             <label htmlFor="trip">Trip: 
                 <input type="text" id="trip" name="trip"/>
