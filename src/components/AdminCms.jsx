@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import BlogForm from "./forms/BlogForm"
+import VideoForm from "./forms/VideoForm"
+import ProductForm from "./forms/ProductForm"
 
 export default function AdminCms() {
-    const [form, setForm] = useState("BlogForm")
+    const [form, setForm] = useState("")
     let changeForm = (event) => {
         setForm(event.target.value)
     }
@@ -20,8 +22,10 @@ export default function AdminCms() {
                     <input type="radio" id="product" name="form" value="product"/> Product
                 </label>
             </fieldset>
-            <BlogForm />
-            <input type="submit" value="Add New Content"/>
+            {form === "blog" ? <BlogForm /> : ""}
+            {form === "video" ? <VideoForm /> : ""}
+            {form === "product" ? <ProductForm /> : ""}
+            <input type="submit" value={"Add new " + form}/>
         </form>
     )
 }

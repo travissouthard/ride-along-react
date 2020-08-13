@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function BlogForm() {
+export default function ProductForm() {
     return (
         <fieldset>
-            <legend>Add a blog</legend>
+            <legend>Add a product</legend>
             <label htmlFor="title">Title: 
                 <input type="text" id="title" name="title"/>
             </label>

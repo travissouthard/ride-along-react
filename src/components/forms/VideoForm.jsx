@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function BlogForm() {
+export default function VideoForm() {
     return (
         <fieldset>
-            <legend>Add a blog</legend>
+            <legend>Add a video</legend>
             <label htmlFor="title">Title: 
                 <input type="text" id="title" name="title"/>
             </label>
