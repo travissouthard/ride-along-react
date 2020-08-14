@@ -25,9 +25,10 @@ if (process.env.NODE_ENV === 'development') {
 
 export default function App() {
   // State
-    // Data for blogs and videos
+    // Data for content
     const [blogs, setBlogs] = useState([])
     const [videos, setVideos] = useState([])
+    const [products, setProducts] = useState([])
     // For login
     const [admin, setAdmin] = useState({})
     const [loginEmail, setLoginEmail] = useState("")
@@ -43,9 +44,9 @@ export default function App() {
     const [thumbnail, setThumbnail] = useState("")
     const [name, setName] = useState("")
     const [description, setDescription] = useState("")
-    const [price, setPrice] = useState("")
-    const [quantity, setQuantity] = useState("")
-    const [discount, setDiscount] = useState("")
+    const [price, setPrice] = useState(0)
+    const [quantity, setQuantity] = useState(0)
+    const [discount, setDiscount] = useState(1)
 
   // Functions to make everything work
   useEffect(() => {
@@ -63,8 +64,16 @@ export default function App() {
         setVideos(data.data)
       }).catch(err => console.log(err))
     }
+    let getProducts = async () => {
+      fetch(baseUrl + "/v1/product").then(res => {
+        return res.json();
+      }).then(data => {
+        setProducts(data.data)
+      }).catch(err => console.log(err))
+    }
     getBlogs()
     getVideos()
+    getProducts()
   }, [])
   
   let handleChange = (event, callback) => {
@@ -93,33 +102,93 @@ export default function App() {
 
   let handleSubmit = (event, type) => {
     event.preventDefault()
-    fetch(baseUrl + "/v1/" + type, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        title: title,
-        text: text,
-        image: image,
-        date: date,
-        author: author,
-        trip: trip,
-        last_admin: admin.id
+    if (type === "blog") {
+      fetch(baseUrl + "/v1/" + type, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          title: title,
+          text: text,
+          image: image,
+          date: date,
+          author: author,
+          trip: trip,
+          last_admin: admin.id
+        })
+      }).then(res => {
+        return res.json()
+      }).then(data => {
+        let copyBlogs = [...blogs]
+        copyBlogs.push(data)
+        setBlogs(copyBlogs)
+        setTitle("")
+        setText("")
+        setImage("")
+        setDate("")
+        setAuthor("")
+        setTrip("")
       })
-    }).then(res => {
-      return res.json()
-    }).then(data => {
-      let copyBlogs = [...blogs]
-      copyBlogs.push(data)
-      setBlogs(copyBlogs)
-      setTitle("")
-      setText("")
-      setImage("")
-      setDate("")
-      setAuthor("")
-      setTrip("")
-    })
+    } else if (type === "video") {
+      fetch(baseUrl + "/v1/" + type, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          title: title,
+          text: text,
+          url: url,
+          date: date,
+          thumbnail: thumbnail,
+          trip: trip,
+          last_admin: admin.id
+        })
+      }).then(res => {
+        return res.json()
+      }).then(data => {
+        let copyVideos = [...videos]
+        copyVideos.push(data)
+        setVideos(copyVideos)
+        setTitle("")
+        setText("")
+        setUrl("")
+        setDate("")
+        setThumbnail("")
+        setTrip("")
+      })
+    } else if (type === "product") {
+      fetch(baseUrl + "/v1/" + type, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          name: name,
+          description: description,
+          image: image,
+          price: price,
+          quantity: quantity,
+          discount: discount,
+          trip: trip,
+          last_admin: admin.id
+        })
+      }).then(res => {
+        return res.json()
+      }).then(data => {
+        let copyProducts = [...products]
+        copyProducts.push(data)
+        setProducts(copyProducts)
+        setName("")
+        setDescription("")
+        setImage("")
+        setQuantity(0)
+        setPrice(0)
+        setDiscount(1)
+        setTrip("")
+      })
+    }
   }
 
   // Render

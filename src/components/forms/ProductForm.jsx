@@ -13,7 +13,7 @@ export default function ProductForm(props) {
             <label htmlFor="image">Image URL: 
                 <input type="text" id="image" name="image" value={props.image} onChange={(event) => props.handleChange(event, props.setImage)}/>
             </label>
-            <label htmlFor="price">Date: 
+            <label htmlFor="price">Price: 
                 <input type="number" id="price" name="price" value={props.price} onChange={(event) => props.handleChange(event, props.setPrice)}/>
             </label>
             <label htmlFor="quantity">Quantity: 
