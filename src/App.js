@@ -31,6 +31,7 @@ export default function App() {
     const [products, setProducts] = useState([])
     // For login
     const [admin, setAdmin] = useState({})
+    const [loginFormOn, setLoginFormOn] = useState(false)
     const [loginEmail, setLoginEmail] = useState("")
     const [loginPassword, setLoginPassword] = useState("")
     // For forms
@@ -76,6 +77,10 @@ export default function App() {
     getProducts()
   }, [])
   
+  let toggleLoginForm = () => {
+    setLoginFormOn(!loginFormOn)
+  }
+
   let handleChange = (event, callback) => {
     callback(event.target.value)
   }
@@ -281,15 +286,20 @@ export default function App() {
           {admin.username ? (
             <a href="/user/logout">Logout {admin.username}</a>
           ) : (
-            <form onSubmit={(event => handleLogin(event))}>
-              <label htmlFor="email">Email
-                <input type="email" name="email" id="email" value={loginEmail} onChange={(event) => handleChange(event, setLoginEmail)}/>
-              </label>
-              <label htmlFor="password">Password
-                <input type="password" name="password" id="password" value={loginPassword} onChange={(event) => handleChange(event, setLoginPassword)}/>
-              </label>
-              <input type="submit" value="Login" />
-            </form>
+            loginFormOn ? (
+              <form onSubmit={(event => handleLogin(event))}>
+                <label htmlFor="email">Email
+                  <input type="email" name="email" id="email" value={loginEmail} onChange={(event) => handleChange(event, setLoginEmail)}/>
+                </label>
+                <label htmlFor="password">Password
+                  <input type="password" name="password" id="password" value={loginPassword} onChange={(event) => handleChange(event, setLoginPassword)}/>
+                </label>
+                <input type="submit" value="Login" />
+                <button onClick={() => toggleLoginForm()}>Cancel</button>
+              </form>
+            ) : (
+              <p id="admin-login" onClick={() => toggleLoginForm()}>Admin Login</p>
+            )
           )}
         </footer>
       </div>
