@@ -245,7 +245,10 @@ export default function App() {
             <Contact />
           </Route>
           <Route exact path="/">
-            <Home />
+            <Home 
+              videos={videos}
+              blogs={blogs}
+            />
           </Route>
           <Route path="/admincms">
             {admin.username ? (
