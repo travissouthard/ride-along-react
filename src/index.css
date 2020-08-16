@@ -20,14 +20,14 @@ h1 {
   display: inline;
 }
 
-ul {
+nav ul {
   margin: 0;
   padding: 0;
   list-style: none;
   text-align: right;
 }
 
-li {
+nav li {
   display: inline;
   margin: 0 10px;
 }
