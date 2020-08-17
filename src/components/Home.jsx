@@ -15,7 +15,7 @@ export default function Home(props) {
             <hr />
             <article>
                 <h3>{props.blog ? props.blog["title"] : "Blog Title"}</h3>
-                {props.video ? (
+                {props.blog ? (
                     <img src={props.blog.image} alt={props.blog.title}/>
                 ) : ""}
                 <p><em>{props.blog ? (
