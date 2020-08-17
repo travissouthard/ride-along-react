@@ -19,7 +19,7 @@ export default function Home(props) {
                 <p><em>{props.blog ? (
                     props.blog.date.slice(0, 16)
                 ) : "blog date"}</em></p>
-                <p>{props.blog ? props.blog["text"] : "blog Description"}</p>
+                <p>{props.blog ? props.blog["text"] : "Blog text"}</p>
             </article>
         </main>
     )
