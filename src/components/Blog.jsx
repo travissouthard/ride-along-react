@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Blog(props) {
     return (
-        <div>
+        <main>
             <h2>Blog Page</h2>
             {props.blogs.length < 1 ? (
                 <p>No blogs yet, sorry.</p>
@@ -13,6 +13,6 @@ export default function Blog(props) {
                     })}
                 </ul>
             )}
-        </div>
+        </main>
     )
 }

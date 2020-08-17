@@ -246,8 +246,8 @@ export default function App() {
           </Route>
           <Route exact path="/">
             <Home 
-              videos={videos}
-              blogs={blogs}
+              video={videos[videos.length - 1]}
+              blog={blogs[blogs.length - 1]}
             />
           </Route>
           <Route path="/admincms">
