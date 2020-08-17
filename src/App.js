@@ -19,7 +19,7 @@ let baseUrl;
 if (process.env.NODE_ENV === 'development') {
   baseUrl = 'http://localhost:8000';
 } else {
-  baseUrl = 'https://ride-along-backend.herokuapp.com';
+  baseUrl = 'https://ridealongbackend.herokuapp.com';
 }
 // console.log('current base URL:', baseUrl);
 
