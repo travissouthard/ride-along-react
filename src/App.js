@@ -23,7 +23,7 @@ if (process.env.NODE_ENV === 'development') {
 }
 // console.log('current base URL:', baseUrl);
 
-// let baseImage = "./images/"
+let baseImage = "./images/"
 
 export default function App() {
   // State
@@ -231,19 +231,19 @@ export default function App() {
           </ul>
         </nav>
         <Switch>
-          <Route path="/about">
+          <Route exact path="/about">
             <About />
           </Route>
-          <Route path="/blog">
-            <Blog blogs={blogs}/>
+          <Route exact path="/blog">
+            <Blog blogs={blogs} baseImage={baseImage}/>
           </Route>
-          <Route path="/videos">
-            <Videos videos={videos}/>
+          <Route exact path="/videos">
+            <Videos videos={videos} baseImage={baseImage}/>
           </Route>
-          <Route path="/shop">
+          <Route exact path="/shop">
             <Shop />
           </Route>
-          <Route path="/contact">
+          <Route exact path="/contact">
             <Contact />
           </Route>
           <Route exact path="/">
@@ -252,7 +252,7 @@ export default function App() {
               blog={blogs[blogs.length - 1]}
             />
           </Route>
-          <Route path="/admincms">
+          <Route exact path="/admincms">
             {admin.username ? (
               <AdminCms 
                 handleChange={handleChange}
