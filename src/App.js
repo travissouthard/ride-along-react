@@ -23,6 +23,8 @@ if (process.env.NODE_ENV === 'development') {
 }
 // console.log('current base URL:', baseUrl);
 
+// let baseImage = "./images/"
+
 export default function App() {
   // State
     // Data for content

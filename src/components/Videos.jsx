@@ -13,7 +13,7 @@ export default function Videos(props) {
                             <h3>{video.title}</h3>
                             <img src={video.thumbnail} alt={video.title}/>
                             <p><em>{video.date.slice(0, 16)}</em></p>
-                            <p>{video.text.slice(0, 120) + "..."} <span>Read more</span></p>
+                            <p>{video.text.slice(0, 120) + "..."} <span>Watch on YouTube</span></p>
                         </article>
                         })}
                     </div>
