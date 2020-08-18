@@ -50,7 +50,11 @@ export default function App() {
     const [price, setPrice] = useState(0)
     const [quantity, setQuantity] = useState(0)
     const [discount, setDiscount] = useState(1)
-
+  //For store
+    const [checkoutOn, setCheckoutOn] = useState(false)
+    const [customerName, setCustomerName] = useState("")
+    const [amount, setAmount] = useState(0)
+    const [cart, setCart] = useState([])
   // Functions to make everything work
   useEffect(() => {
     let getBlogs = async () => {
@@ -197,6 +201,38 @@ export default function App() {
       })
     }
   }
+  //Functions for store
+  let toggleCheckout = () => {
+    setCheckoutOn(!checkoutOn)
+  }
+  let refreshAmount = () => {
+      let sum = 0
+      cart.map(item => {
+          sum += item.price
+      })
+      setAmount(sum)
+  }
+  let addToCart = (item) => {
+      let newItem = {
+          name: item.name,
+          quantity: 1,
+          price: item.price
+      }
+      let copyCart = [...cart]
+      copyCart.push(newItem)
+      setCart(copyCart)
+      refreshAmount()
+  }
+  let removeItem = (index) => {
+      let copyCart = [...cart]
+      copyCart.splice(index, 1)
+      setCart(copyCart)
+      refreshAmount()
+  }
+  let resetCart = () => {
+      setCart([])
+      refreshAmount()
+  }
 
   // Render
   return (
@@ -241,7 +277,19 @@ export default function App() {
             <Videos videos={videos} baseImage={baseImage}/>
           </Route>
           <Route exact path="/shop">
-            <Shop products={products} handleChange={handleChange}/>
+            <Shop 
+              products={products}
+              checkoutOn={checkoutOn}
+              customerName={customerName}
+              amount={amount}
+              cart={cart}
+              handleChange={handleChange}
+              setCustomerName={setCustomerName}
+              toggleCheckout={toggleCheckout}
+              addToCart={addToCart}
+              removeItem={removeItem}
+              resetCart={resetCart}
+            />
           </Route>
           <Route exact path="/contact">
             <Contact />
