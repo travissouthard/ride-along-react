@@ -8,7 +8,7 @@ export default function ProductForm(props) {
                 <input type="text" id="name" name="name" value={props.name} onChange={(event) => props.handleChange(event, props.setName)}/>
             </label>
             <label htmlFor="description">Text: 
-                <textarea type="text" id="description" name="description" onChange={(event) => props.handleChange(event, props.setDescription)}>{props.description}</textarea>
+                <textarea type="text" id="description" name="description" onChange={(event) => props.handleChange(event, props.setDescription)} value={props.description}></textarea>
             </label>
             <label htmlFor="image">Image URL: 
                 <input type="text" id="image" name="image" value={props.image} onChange={(event) => props.handleChange(event, props.setImage)}/>
