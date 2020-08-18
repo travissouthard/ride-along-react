@@ -23,13 +23,9 @@ export default function Shop(props) {
                                     props.cart.map((item, index) => {
                                         return <tr key={index}>
                                             <td>{item.name}</td>
-                                            <td>
-                                                <button>-</button>
-                                                {item.quantity}
-                                                <button>+</button>
-                                            </td>
-                                            <td>{"$" + item.quantity * item.price.toFixed(2)}</td>
-                                            <td className="cart-delete" onClick={() => props.removeItem(index)}>X</td>
+                                            <td>{item.quantity}</td>
+                                            <td>{"$" + item.price.toFixed(2)}</td>
+                                            <td onClick={() => props.removeItem(index)}>X</td>
                                         </tr>
                                     })
                                 )}
@@ -57,7 +53,10 @@ export default function Shop(props) {
                         </form>
                     </div>
                 ) : (
-                    <button onClick={() => props.toggleCheckout()}>Begin checkout</button>
+                    <div>
+                        <h3>{props.cart.length + " items in your cart!"}</h3>
+                        <button onClick={() => props.toggleCheckout()}>Begin checkout</button>
+                    </div>
                 )}
             </div>
             <div className="shop">

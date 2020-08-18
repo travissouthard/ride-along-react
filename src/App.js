@@ -211,7 +211,6 @@ export default function App() {
   }
   let refreshAmount = (cart) => {
       let sum = 0
-      console.log(cart)
       cart.map(item => {
           sum += item.price
       })
