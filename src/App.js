@@ -241,7 +241,7 @@ export default function App() {
             <Videos videos={videos} baseImage={baseImage}/>
           </Route>
           <Route exact path="/shop">
-            <Shop />
+            <Shop products={products} handleChange={handleChange}/>
           </Route>
           <Route exact path="/contact">
             <Contact />
