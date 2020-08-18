@@ -8,7 +8,7 @@ export default function BlogForm(props) {
                 <input type="text" id="title" name="title" value={props.title} onChange={(event) => props.handleChange(event, props.setTitle)}/>
             </label>
             <label htmlFor="text">Text: 
-                <input type="text" id="text" name="text" value={props.text} onChange={(event) => props.handleChange(event, props.setText)}/>
+                <textarea type="text" id="text" name="text" onChange={(event) => props.handleChange(event, props.setText)}>{props.text}</textarea>
             </label>
             <label htmlFor="image">Image URL: 
                 <input type="text" id="image" name="image" value={props.image} onChange={(event) => props.handleChange(event, props.setImage)}/>

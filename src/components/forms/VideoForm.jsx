@@ -7,9 +7,8 @@ export default function VideoForm(props) {
             <label htmlFor="title">Title: 
                 <input type="text" id="title" name="title" value={props.title} onChange={(event) => props.handleChange(event, props.setTitle)}/>
             </label>
-            <label htmlFor="text">Text: 
-                <input type="text" id="text" name="text" value={props.text} onChange={(event) => props.handleChange(event, props.setText)}/>
-            </label>
+            <textarea htmlFor="text">Text: 
+                <input type="text" id="text" name="text" onChange={(event) => props.handleChange(event, props.setText)}/>{props.text}</textarea>
             <label htmlFor="url">Video URL: 
                 <input type="text" id="url" name="url" value={props.url} onChange={(event) => props.handleChange(event, props.setUrl)}/>
             </label>
