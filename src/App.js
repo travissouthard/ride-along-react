@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react"
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link
-} from "react-router-dom";
+} from "react-router-dom"
+import {Elements} from '@stripe/react-stripe-js'
+import {loadStripe} from '@stripe/stripe-js'
 import Header from "./components/Header"
 import Home from "./components/Home"
 import About from "./components/About"
@@ -23,6 +25,7 @@ if (process.env.NODE_ENV === 'development') {
 }
 // console.log('current base URL:', baseUrl);
 
+let stripePromise = loadStripe("pk_test_51HHbahIEFsHhJC0jNRauws9n6Z5NwUzlk3yosmQh4FJYoIn5LON7hho4u0hIslCIHlb0YLZcnXXT4HNFfNTzG5po00cwUzJKeK")
 let baseImage = "./images/"
 
 export default function App() {
@@ -53,6 +56,7 @@ export default function App() {
   //For store
     const [checkoutOn, setCheckoutOn] = useState(false)
     const [customerName, setCustomerName] = useState("")
+    const [email, setEmail] = useState("")
     const [amount, setAmount] = useState(0)
     const [cart, setCart] = useState([])
   // Functions to make everything work
@@ -205,8 +209,9 @@ export default function App() {
   let toggleCheckout = () => {
     setCheckoutOn(!checkoutOn)
   }
-  let refreshAmount = () => {
+  let refreshAmount = (cart) => {
       let sum = 0
+      console.log(cart)
       cart.map(item => {
           sum += item.price
       })
@@ -221,23 +226,23 @@ export default function App() {
       let copyCart = [...cart]
       copyCart.push(newItem)
       setCart(copyCart)
-      refreshAmount()
+      refreshAmount(copyCart)
   }
   let removeItem = (index) => {
       let copyCart = [...cart]
       copyCart.splice(index, 1)
       setCart(copyCart)
-      refreshAmount()
+      refreshAmount(copyCart)
   }
   let resetCart = () => {
       setCart([])
-      refreshAmount()
+      refreshAmount([])
   }
 
   // Render
   return (
     <Router>
-      <div>
+      <Elements stripe={stripePromise}>
         <Header />
         <nav>
           <ul>
@@ -281,10 +286,12 @@ export default function App() {
               products={products}
               checkoutOn={checkoutOn}
               customerName={customerName}
+              email={email}
               amount={amount}
               cart={cart}
               handleChange={handleChange}
               setCustomerName={setCustomerName}
+              setEmail={setEmail}
               toggleCheckout={toggleCheckout}
               addToCart={addToCart}
               removeItem={removeItem}
@@ -355,7 +362,7 @@ export default function App() {
             )
           )}
         </footer>
-      </div>
+      </Elements>
     </Router>
   );
 }

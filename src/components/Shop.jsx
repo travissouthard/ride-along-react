@@ -1,4 +1,5 @@
 import React from 'react'
+import {CardElement} from '@stripe/react-stripe-js'
 
 export default function Shop(props) {
     //Render
@@ -44,9 +45,13 @@ export default function Shop(props) {
                             <label htmlFor="customerName"> Full name: 
                                 <input type="text" id="customerName" name="customerName" value={props.customerName} onChange={(event) => props.handleChange(event, props.setCustomerName)}/>
                             </label>
+                            <label htmlFor="email"> Email: 
+                                <input type="email" id="email" name="email" value={props.email} onChange={(event) => props.handleChange(event, props.setEmail)}/>
+                            </label>
                             <label htmlFor="amount"> Amount: 
                                 <input type="text" id="amount" name="amount" disabled value={props.amount.toFixed(2)}/>
                             </label>
+                            <CardElement />
                             <input type="submit" value="Checkout"/>
                             <button onClick={() => props.toggleCheckout()}>Cancel</button>
                         </form>
