@@ -293,10 +293,10 @@ export default function App() {
           ) : (
             loginFormOn ? (
               <form onSubmit={(event => handleLogin(event))}>
-                <label htmlFor="email">Email
+                <label htmlFor="email">Email: 
                   <input type="email" name="email" id="email" value={loginEmail} onChange={(event) => handleChange(event, setLoginEmail)}/>
                 </label>
-                <label htmlFor="password">Password
+                <label htmlFor="password">Password: 
                   <input type="password" name="password" id="password" value={loginPassword} onChange={(event) => handleChange(event, setLoginPassword)}/>
                 </label>
                 <input type="submit" value="Login" />

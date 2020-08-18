@@ -11,7 +11,9 @@ export default function Blog(props) {
                     {props.blogs.map((blog, index) => {
                         return <article key={index}>
                             <h3>{blog.title}</h3>
-                            <img src={props.baseImage + "blog-images/" + blog.image} alt={blog.title}/>
+                            {blog.image === "" ? "" : (
+                                <img src={blog.image} alt={blog.title}/>
+                            )}
                             <p><em>{blog.date.slice(0, 16)}</em></p>
                             <p>{blog.text.slice(0, 120) + "..."} <span>Read more</span></p>
                         </article>

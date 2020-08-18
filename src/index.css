@@ -7,6 +7,9 @@ body {
   font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  display: flex;
+  flex-flow: column nowrap;
 }
 
 header, nav {
@@ -15,14 +18,15 @@ header, nav {
   margin: 0;
 }
 
-h1 {
-  margin: 0;
-  display: inline;
+ul {
+  width: 60%;
+  margin: 0 auto;
 }
 
 nav ul {
   margin: 0;
   padding: 0;
+  width: auto;
   list-style: none;
   text-align: right;
 }
@@ -32,11 +36,58 @@ nav li {
   margin: 0 10px;
 }
 
-a {
+nav a {
   text-decoration: none;
   color: white;
 }
 
+main {
+  flex-grow: 1;
+}
+
+h1 {
+  margin: 0;
+}
+
+h2, h3 {
+  text-align: center;
+}
+
+p {
+  text-align: justify;
+  padding: 0 10px;
+}
+
+img, iframe, article {
+  width: 100%;
+}
+
+article {
+  border-top: 1px solid var(--blue);
+}
+
+form, footer p {
+  text-align: right;
+}
+
+label {
+  display: block;
+  width: 100%;
+}
+
+footer {
+  margin-top: auto;
+  padding: 10px 0 5px;
+  color: white;
+  background-color: var(--blue);
+}
+
 #logo {
   width: 100px;
+  display: block;
+  margin: 0 auto;
+}
+
+#admin-login {
+  cursor: pointer;
 }
