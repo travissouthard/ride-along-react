@@ -23,6 +23,14 @@ ul {
   margin: 0 auto;
 }
 
+li {
+  margin: 10px 0;
+}
+
+a {
+  color: var(--blue);
+}
+
 nav ul {
   margin: 0;
   padding: 0;
