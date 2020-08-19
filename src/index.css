@@ -79,6 +79,8 @@ article {
 
 span {
   color: var(--blue);
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 table {
@@ -145,12 +147,20 @@ footer {
   background-color: var(--blue);
 }
 
+.blog-controls {
+  text-align: center;
+}
+
 .checkout {
   width: 80%;
   margin: 0 auto 5px auto;
   border: 1px solid var(--blue);
   padding: 20px;
   border-radius: 5px;
+}
+
+.hidden {
+  display: none;
 }
 
 .StripeElement {
@@ -184,6 +194,10 @@ footer {
     border-radius: 10px;
     padding: 10px;
     margin: 10px auto;
+  }
+
+  .product img {
+    width: 50%;
   }
 }
 
