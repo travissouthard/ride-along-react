@@ -76,7 +76,7 @@ export default function Shop(props) {
                                 <input type="text" id="amount" name="amount" disabled value={props.amount.toFixed(2)}/>
                             </label>
                             <CardElement onChange={(event) => handleCardChange(event)}/>
-                            <input type="submit" value="Checkout"/>
+                            <input type="submit" value="Checkout" disabled/>
                             <button onClick={() => props.toggleCheckout()}>Cancel</button>
                         </form>
                     </div>

@@ -74,6 +74,19 @@ article {
   border-top: 1px solid var(--blue);
 }
 
+span {
+  color: var(--blue);
+}
+
+table {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+td {
+  text-align: center;
+}
+
 form, footer p {
   text-align: right;
 }
@@ -81,13 +94,41 @@ form, footer p {
 label {
   display: block;
   width: 100%;
+  margin: 2px;
+}
+
+button, input[type="submit"] {
+  background-color: var(--blue);
+  border-radius: 5px;
+  padding: .5em 1em;
+  color: white;
+  border: 1px solid white;
+}
+
+button:hover, input[type="submit"]:hover {
+  background-color: white;
+  color: var(--blue);
+  border: 1px solid var(--blue);
+  cursor: pointer;
+}
+
+button:disabled, input[type="submit"]:disabled {
+  background-color: lightgray;
+  color: var(--blue);
+  border: 1px solid var(--blue);
+  cursor: default;
 }
 
 footer {
-  margin-top: auto;
+  margin-top: 20px;
   padding: 10px 0 5px;
   color: white;
   background-color: var(--blue);
+}
+
+.checkout {
+  width: 80%;
+  margin: 0 auto 5px auto;
 }
 
 #logo {
