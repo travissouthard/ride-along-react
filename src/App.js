@@ -293,6 +293,7 @@ export default function App() {
           </Route>
           <Route exact path="/shop">
             <Shop 
+              baseImage={baseImage}
               products={products}
               checkoutOn={checkoutOn}
               customerName={customerName}

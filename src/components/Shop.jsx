@@ -93,7 +93,7 @@ export default function Shop(props) {
                     props.products.map((product, index) => {
                         return <article key={index} className="product">
                             <h3>{product.name}</h3>
-                            <img src={product.image} alt={product.name}/>
+                            <img src={props.baseImage + "products/" + product.image} alt={product.name}/>
                             <p>{"$" + product.price.toFixed(2) + " | " + product.quantity + " left in stock"}</p>
                             <p>{product.description}</p>
                             <button onClick={() => {props.addToCart(product)}}>Add to Cart!</button>
