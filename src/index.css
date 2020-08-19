@@ -206,12 +206,18 @@ footer {
     font-size: 1.5em;
   }
 
+  table, .cart form {
+    width: 60%;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
   .blogs {
     width: 100%;
     display: flex;
     flex-flow: row wrap;
   }
-  
+
   .spread {
     width: 90%;
     height: auto;
@@ -224,5 +230,25 @@ footer {
   .spread img {
     width: 50%;
     margin: 0 auto;
+  }
+
+  .shop, .cart {
+    width: 100%;
+  }
+
+  .product {
+    width: 27%;
+    margin: 3%;
+  }
+}
+
+@media (min-width: 1200px) {
+  article, .spread {
+    width: 27%;
+    margin: 3%;
+  }
+
+  .spread img {
+    width: 100%;
   }
 }
