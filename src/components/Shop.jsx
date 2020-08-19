@@ -72,7 +72,7 @@ export default function Shop(props) {
                             <label htmlFor="email"> Email: 
                                 <input type="email" id="email" name="email" value={props.email} onChange={(event) => props.handleChange(event, props.setEmail)}/>
                             </label>
-                            <label htmlFor="amount"> Amount: 
+                            <label htmlFor="amount"> Amount (US$): 
                                 <input type="text" id="amount" name="amount" disabled value={props.amount.toFixed(2)}/>
                             </label>
                             <CardElement onChange={(event) => handleCardChange(event)}/>

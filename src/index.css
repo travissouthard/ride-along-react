@@ -21,10 +21,13 @@ header, nav {
 ul {
   width: 60%;
   margin: 0 auto;
+  padding: 0;
+  list-style: none;
 }
 
 li {
   margin: 10px 0;
+  text-align: center;
 }
 
 a {
@@ -83,6 +86,10 @@ table {
   margin-bottom: 20px;
 }
 
+tr {
+  border-top: 1px solid var(--blue);
+}
+
 td {
   text-align: center;
 }
@@ -94,15 +101,28 @@ form, footer p {
 label {
   display: block;
   width: 100%;
-  margin: 2px;
+  margin: 4px;
+  text-align: left;
+}
+
+input {
+  width: 50%;
+  float: right;
+  border: 1px solid var(--blue);
+  padding: 2px;
+  border-radius: 3px;
+  text-align: center;
 }
 
 button, input[type="submit"] {
+  width: auto;
+  float: none;
   background-color: var(--blue);
   border-radius: 5px;
   padding: .5em 1em;
   color: white;
   border: 1px solid white;
+  transform: translate(4px);
 }
 
 button:hover, input[type="submit"]:hover {
@@ -115,7 +135,6 @@ button:hover, input[type="submit"]:hover {
 button:disabled, input[type="submit"]:disabled {
   background-color: lightgray;
   color: var(--blue);
-  border: 1px solid var(--blue);
   cursor: default;
 }
 
@@ -129,6 +148,19 @@ footer {
 .checkout {
   width: 80%;
   margin: 0 auto 5px auto;
+  border: 1px solid var(--blue);
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.StripeElement {
+  width: 100%;
+  margin: 2px 0;
+  float: right;
+  border: 1px solid var(--blue);
+  padding: 2px;
+  border-radius: 3px;
+  transform: translate(4px);
 }
 
 #logo {
