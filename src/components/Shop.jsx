@@ -56,6 +56,7 @@ export default function Shop(props) {
                     <div>
                         <h3>{props.cart.length + " items in your cart!"}</h3>
                         <button onClick={() => props.toggleCheckout()}>Begin checkout</button>
+                        <button onClick={() => props.resetCart()}>Empty Cart</button>
                     </div>
                 )}
             </div>
