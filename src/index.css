@@ -147,6 +147,10 @@ footer {
   background-color: var(--blue);
 }
 
+footer a {
+  color: white;
+}
+
 .blog-controls {
   text-align: center;
 }
