@@ -26,7 +26,8 @@ if (process.env.NODE_ENV === 'development') {
 // console.log('current base URL:', baseUrl);
 
 let stripePromise = loadStripe("pk_test_51HHbahIEFsHhJC0jNRauws9n6Z5NwUzlk3yosmQh4FJYoIn5LON7hho4u0hIslCIHlb0YLZcnXXT4HNFfNTzG5po00cwUzJKeK")
-let baseImage = "./images/"
+
+let baseImage = "./images/" //Standardizes the routing of image files
 
 export default function App() {
   // State
@@ -237,6 +238,16 @@ export default function App() {
       setCart([])
       refreshAmount([])
   }
+  let stripeTokenHandler = async (token) => {
+    const response = await fetch('/charge', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({token: token.id})
+    });
+    return response.json();
+  }
 
   // Render
   return (
@@ -337,6 +348,7 @@ export default function App() {
                 setPrice={setPrice}
                 setQuantity={setQuantity}
                 setDiscount={setDiscount}
+                stripeTokenHandler={stripeTokenHandler}
               />
             ) : <p>You need to log in for this feature.</p>}
           </Route>

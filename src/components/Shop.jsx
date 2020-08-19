@@ -1,7 +1,35 @@
-import React from 'react'
-import {CardElement} from '@stripe/react-stripe-js'
+import React, {useState} from 'react'
+import {CardElement, useStripe, useElements} from '@stripe/react-stripe-js'
 
 export default function Shop(props) {
+    const [error, setError] = useState(null)
+    const stripe = useStripe()
+    const elements = useElements()
+
+    // Handle real-time validation errors from the card Element.
+    const handleCardChange = (event) => {
+        if (event.error) {
+            setError(event.error.message);
+        } else {
+            setError(null)
+        }
+    }
+
+    // Handle form submission.
+    const handlePaymentSubmit = async (event) => {
+        event.preventDefault()
+        const card = elements.getElement(CardElement)
+        const result = await stripe.createToken(card)
+        if (result.error) {
+        // Inform the user if there was an error.
+            setError(result.error.message)
+        } else {
+            setError(null)
+            // Send the token to your server.
+            props.stripeTokenHandler(result.token);
+        }
+    }
+
     //Render
     return (
         <main>
@@ -37,7 +65,7 @@ export default function Shop(props) {
                                 </tr>
                             </tbody>
                         </table>
-                        <form className="checkout">
+                        <form className="checkout" onSubmit={(event) => handlePaymentSubmit(event)}>
                             <label htmlFor="customerName"> Full name: 
                                 <input type="text" id="customerName" name="customerName" value={props.customerName} onChange={(event) => props.handleChange(event, props.setCustomerName)}/>
                             </label>
@@ -47,7 +75,7 @@ export default function Shop(props) {
                             <label htmlFor="amount"> Amount: 
                                 <input type="text" id="amount" name="amount" disabled value={props.amount.toFixed(2)}/>
                             </label>
-                            <CardElement />
+                            <CardElement onChange={(event) => handleCardChange(event)}/>
                             <input type="submit" value="Checkout"/>
                             <button onClick={() => props.toggleCheckout()}>Cancel</button>
                         </form>
