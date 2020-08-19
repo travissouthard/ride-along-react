@@ -13,13 +13,13 @@ export default function AdminCms(props) {
             <fieldset onChange={(event) => changeForm(event)}>
                 <legend>What do you want to add?</legend>
                 <label htmlFor="blog">
-                    <input type="radio" id="blog" name="form" value="blog"/> Blog
+                    <input type="radio" id="blog" name="form" value="blog"/> Blog:
                 </label>
                 <label htmlFor="video">
-                    <input type="radio" id="video" name="form" value="video"/> Video
+                    <input type="radio" id="video" name="form" value="video"/> Video:
                 </label>
                 <label htmlFor="product">
-                    <input type="radio" id="product" name="form" value="product"/> Product
+                    <input type="radio" id="product" name="form" value="product"/> Product:
                 </label>
             </fieldset>
             {form === "blog" ? (
