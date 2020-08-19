@@ -1,6 +1,8 @@
 # Ride Along Pictures
 ## Business Website for Ride Along Pictures Ltd.
 
+### This is just the front end visit [the backend here](https://github.com/travissouthard/ride-along-backend)
+
 ### About
 
 Ride Along Pictures Ltd. is an LLC business founded by Kate Norris and Travis Southard. They are two best friends who create films and other media around outdoor adventures to help bring new people into that world and to advocate for where those adventures take place. In fall 2019, they rode the entire East Coast Greenway from Calais, ME to Key West, FL and filmed the trip to make a (still in post-production) documentary about their experiences on that trip. 
@@ -36,17 +38,19 @@ Ride Along Pictures Ltd. needs a website to showcase past and present work, conn
 - Front end:
   - React
   - React Router Dom
-  - Redux for store page **NEW TECH ALERT**
+  - Stripe to take card payments
 - Back end:
   - Python/Flask
   - SQL Server to maintain:
     - Blog & video data
     - Basic analytics feedback
     - Admin login
-- Stretch goals:
-  - Custom video player
-  - Custom analytics 
-  - Tracking admin activity
+
+### Wish List
+- Custom analytics
+- Ability to directly upload image files
+- Refactoring backend with node/express since python/flask seems a little slow
+- Alternately, adding in placeholder blocks would also work for this
 
 ### User Stories
 - As a viewer I want to:
