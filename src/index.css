@@ -172,3 +172,57 @@ footer {
 #admin-login {
   cursor: pointer;
 }
+
+@media (min-width: 450px) {
+  article {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .product {
+    border: 1px solid var(--blue);
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px auto;
+  }
+}
+
+@media (min-width: 800px) {
+  main {
+    display: flex;
+    flex-flow: row wrap;
+  }
+
+  h2 {
+    width: 100%;
+  }
+
+  article {
+    width: 45%;
+    margin: 2.5%;
+  }
+
+  nav li {
+    font-size: 1.5em;
+  }
+
+  .blogs {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+  }
+  
+  .spread {
+    width: 90%;
+    height: auto;
+    margin: 2.5% 5%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+  }
+
+  .spread img {
+    width: 50%;
+    margin: 0 auto;
+  }
+}

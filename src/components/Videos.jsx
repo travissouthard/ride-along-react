@@ -7,7 +7,7 @@ export default function Videos(props) {
                 {props.videos.length < 1 ? (
                     <p>No videos yet, sorry.</p>
                 ) : (
-                    <div>
+                    <div className="blogs">
                         {props.videos.map((video, index) => {
                             return <article key={index}>
                             <h3>{video.title}</h3>

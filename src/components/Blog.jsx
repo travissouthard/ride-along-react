@@ -7,7 +7,7 @@ export default function Blog(props) {
             {props.blogs.length < 1 ? (
                 <p>No blogs yet, sorry.</p>
             ) : (
-                <div>
+                <div className="blogs">
                     {props.blogs.map((blog, index) => {
                         return <article key={index}>
                             <h3>{blog.title}</h3>

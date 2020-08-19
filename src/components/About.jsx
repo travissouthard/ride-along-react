@@ -3,9 +3,11 @@ import React from 'react'
 export default function About() {
     return (
         <main>
-            <h2>Who Are We?</h2>
-            <img src="./images/kate-and-travis.jpg" alt="Kate and Travis on the Ben Franklin Bridge in Philadelphia"/>
-            <p>Kate and Travis are two best friends who create films and other media around outdoor adventures to help bring new people into that world and to advocate for where those adventures take place. In fall 2019, they rode the entire East Coast Greenway from Calais, ME to Key West, FL and filmed the trip to make a (still in post-production) documentary about their experiences on that trip.</p>
+            <article className="spread">
+                <h2>Who Are We?</h2>
+                <img src="./images/kate-and-travis.jpg" alt="Kate and Travis on the Ben Franklin Bridge in Philadelphia"/>
+                <p>Kate and Travis are two best friends who create films and other media around outdoor adventures to help bring new people into that world and to advocate for where those adventures take place. In fall 2019, they rode the entire East Coast Greenway from Calais, ME to Key West, FL and filmed the trip to make a (still in post-production) documentary about their experiences on that trip.</p>
+            </article>
             <article>
                 <h3>Kate Norris</h3>
                 <img src="./images/kate.jpg" alt="Kate by a campfire"/>
